@@ -205,7 +205,8 @@ class Newsletter
     protected static function obfuscateEmail(string $email): string
     {
         $offset = strrpos($email, '.');
-        if ($offset !== false) {
+	$offsetAt = strrpos($email, '@');
+        if ($offset !== false && $offsetAt !== false && $offset > $offsetAt) {
             return substr_replace($email, '.xxx', $offset);
         }
         // if the email address is too broken to be obfuscated, just return it
