@@ -207,7 +207,7 @@ class Newsletter
         $offset = strrpos($email, '.');
 	$offsetAt = strrpos($email, '@');
         if ($offset !== false && $offsetAt !== false && $offset > $offsetAt) {
-            return substr_replace($email, '.xxx', $offset);
+            return substr_replace($email, '.xxxx', $offset);
         }
         // if the email address is too broken to be obfuscated, just return it
         return $email;
